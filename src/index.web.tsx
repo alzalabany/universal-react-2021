@@ -1,6 +1,8 @@
-import { StatusBar } from 'expo-status-bar'
-import React from 'react'
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
+
+import React from 'react'
+/* eslint-disable react/style-prop-object */
+import { StatusBar } from 'expo-status-bar'
 import { tailwind } from 'Services/tailwind'
 
 export default function App() {

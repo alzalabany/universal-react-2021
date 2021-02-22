@@ -1,13 +1,18 @@
-## style guide
+# Universal-React-2021
 
-- every feature is developed inside /features/[name] folder
-- no deep diging inside folders to get exports; all should be exported in module root index.ts
+an attempt to group some bestpractices in one boilerplate.
 
-### Redux
+## Stack
 
-- all actions start with **trigger** eg: `triggerCallAuthApi` or `tiggerSetuserData`
-- all selectors start with **[module name]** eg: `authCurrentUser` and export on `select()` action
-- redux index should export
-  - default --> slice
-  - named: actions
-  - named: select() function that return selectors
+- [x] typescript
+- [x] redux using redux/toolkit
+- [ ] modular architecture
+- [x] jest for unit test
+- [ ] cypress for E2E
+- [ ] storybook for CDD
+- [-] eslint for linting (code quality)
+- [-] prettier for code formating
+
+## When to use ?
+
+using this boilerplate to start your next web/mobile app using single codebase

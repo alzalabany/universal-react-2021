@@ -1,4 +1,5 @@
 import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios'
+
 import { showAlert } from '../alert'
 
 const http: AxiosInstance = axios.create({
@@ -21,6 +22,7 @@ http.interceptors.response.use(
       response?: AxiosResponse
       request?: XMLHttpRequest
     } = error
+
     if (response) {
       if (response.status >= 400 && response.status < 500) {
         showAlert(response.data?.data?.message, 'error')
