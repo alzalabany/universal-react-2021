@@ -7,6 +7,10 @@
     "noEmit": true,
     "skipLibCheck": true,
     "resolveJsonModule": true,
+    "baseUrl": "src",
+    "paths": {
+      "*": ["*.web", "*.native", "*/index.web", "*/index.native", "*"]
+    },
     "strict": true
   }
 }
