@@ -1,0 +1,93 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import Colors from './Colors.jsx'
+
+<Meta title="Getting Started/FAQ & How To's" url="/faq" />
+
+# How to
+
+> If you’re curious about what’s new in the Kit, and what’s changed, this is the right place.
+
+## How To setup and Config Enviroment
+
+1. Make sure nodejs and npm are installed on your machine by running `node -v;yarn -v;`
+1. start by installing dependencies (all depend sol on nodejs>v12) `yarn install`
+1. Create local .env file using `cp .env .env.local`, then modify `.env.local` with your local values if needed
+
+> > please do not change anything in .env file; this is used as default values for deployment
+
+## Run App for developement
+
+### using Docker
+
+`docker up --build`
+
+### without Docker
+
+To start frontend use:
+
+- `yarn start`
+
+It helps running tests to using
+
+- `yarn test`
+
+or if you prefer/using TDD you can run both in one command using
+
+- `yarn tdd`
+
+if you are following component driven development style, start storybook using:
+
+- `yarn docs`
+
+you can run all 3 (App, unit Testing, Frontend) using
+
+- `yarn dev`
+
+## Quality Tests
+
+### Control
+
+#### I. Unit Test
+
+- `yarn test`
+
+- `yarn test:ci`
+
+#### II. e2e Test
+
+- `yarn e2e`
+- `yarn e2e:ci`
+
+#### III. integration Test
+
+- `yarn test:api`
+
+#### V. GIT Hooks for testing
+
+everytime you try to commit to repo; prettier will run to fix formating problems in code;
+
+following are hooks installed using `husky` into your `.git/hooks`
+
+- pre-commit: format all your (changed) code; then test your commit message is following standards
+- pre-push: make sure app:
+  - can be built;
+  - run all unit tests
+
+> code that ever reach repo should be deployable.
+
+> fail early; fail fast; a failed gitlab pipeline mean a potential breaking of staging/production.. Please make sure everything pass locally before pushing
+> gitlab pipelines are part of QA never depend on them to prevent a bug
+
+---
+
+## Quality Assurance
+
+### Accessibility & Manual Testing
+
+- `yarn docs`
+
+### Code Style
+
+- `yarn code:check`
+
+- `yarn code:format`

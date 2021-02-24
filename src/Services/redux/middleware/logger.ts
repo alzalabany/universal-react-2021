@@ -1,14 +1,10 @@
 import { Middleware } from 'redux'
-
-const REGULAR = ['background: blue', 'color: white'].join(';')
-
-const SUCCESS = ['background: green', 'color: white'].join(';')
-
-const STARTED = ['background: darkorange', 'color: white'].join(';')
-
-const FAILURE = ['background: red', 'color: white'].join(';')
-
-const createLogger: (active: Boolean) => Middleware = (active = true) => (store) => (next) => (action) => {
+const COLOR = 'color: white'
+const REGULAR = ['background: blue', COLOR].join(';')
+const SUCCESS = ['background: green', COLOR].join(';')
+const STARTED = ['background: darkorange', COLOR].join(';')
+const FAILURE = ['background: red', COLOR].join(';')
+const createLogger: (active: boolean) => Middleware = (active = true) => (store) => (next) => (action) => {
   if (!active) {
     return next(action)
   }
@@ -16,6 +12,7 @@ const createLogger: (active: Boolean) => Middleware = (active = true) => (store)
   const prevState = store.getState()
   const result = next(action)
   const nextState = store.getState()
+
   logGroupCollapsed(`%c ${action.type} `, determineStyle(action))
   logInfo('%cprev state', 'color: darkorange', prevState)
   logInfo('%caction payload', 'color: blue', action.payload)
@@ -26,21 +23,23 @@ const createLogger: (active: Boolean) => Middleware = (active = true) => (store)
 
 export default createLogger
 
-function logGroupCollapsed(...args: string[]) {
+function logGroupCollapsed (...args: string[]) {
   const logFunction = typeof console.groupCollapsed === 'function' ? console.groupCollapsed : console.info
+
   logFunction(...args)
 }
 
-function logGroupEnd(...args: string[]) {
+function logGroupEnd (...args: string[]) {
   const logFunction = typeof console.groupEnd === 'function' ? console.groupEnd : console.info
+
   logFunction(...args)
 }
 
-function logInfo(...args: string[]) {
+function logInfo (...args: string[]) {
   console.info(...args)
 }
 
-function determineStyle(action: { meta: { async: any }; type: string | string[] }) {
+function determineStyle (action: { meta: { async: any }; type: string | string[] }) {
   if (!action.meta || !action.meta.async) {
     return REGULAR
   }

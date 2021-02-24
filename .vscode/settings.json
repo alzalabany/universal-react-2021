@@ -2,24 +2,21 @@
 {
   // eslint extension setting
   "eslint.validate": ["javascript", "javascriptreact", "typescript", "typescriptreact"],
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": false,
-    "source.organizeImports": true
+    "source.fixAll.eslint": true,
+    "source.organizeImports": false
   },
   // prettier extension setting
   "editor.formatOnSave": true,
-  "[javascript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescript]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "[typescriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  },
-  "prettier.configPath": ".prettierrc"
+  "liveFrame.url": "http://localhost:19006",
+  "liveFrame.pane": "Beside",
+  "css.validate": false,
+  "scss.validate": false,
+  "[scss]": {
+    "editor.defaultFormatter": "michelemelluso.code-beautifier",
+    "editor.suggest.insertMode": "replace",
+    "gitlens.codeLens.scopes": ["document"]
+  }
 }

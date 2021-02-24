@@ -3,7 +3,7 @@ import axios, { AxiosError, AxiosInstance, AxiosResponse } from 'axios'
 import { showAlert } from '../alert'
 
 const http: AxiosInstance = axios.create({
-  baseURL: process.env.API_URL || 'http://localhost:5000',
+  baseURL: process.env.API_URL || 'http://localhost:5000'
 })
 
 http.defaults.headers.post['Content-Type'] = 'application/json'
@@ -17,7 +17,7 @@ http.interceptors.response.use(
   (error: AxiosError) => {
     const {
       response,
-      request,
+      request
     }: {
       response?: AxiosResponse
       request?: XMLHttpRequest
@@ -32,8 +32,8 @@ http.interceptors.response.use(
       showAlert('Request failed. Please try again.', 'error')
       return null
     }
-    return Promise.reject(error)
-  },
+    throw error
+  }
 )
 
 export default http

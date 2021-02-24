@@ -11,8 +11,8 @@ an attempt to group some bestpractices in one boilerplate.
 - [x] jest for unit test
 - [ ] cypress for E2E
 - [ ] storybook for CDD
-- [-] eslint for linting (code quality)
-- [-] prettier for code formating
+- [x] eslint for linting (code quality)
+- [x] prettier for code formating
 - [x] husky and lint-staged for commit checking
 - [ ] commitizen for standard commit message
 - [ ] standard-version for auto-versioning

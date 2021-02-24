@@ -3,11 +3,18 @@ import React from 'react'
 import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
 import { tailwind } from 'Services/tailwind'
 
-export default function App() {
+export default function App ():JSX.Element {
   return (
-    <SafeAreaView style={tailwind('h-full')}>
-      <View style={styles.container}>
-        <StatusBar style="auto" />
+    <SafeAreaView
+      style={tailwind('h-full')}
+    >
+      <View
+        style={styles.container}
+      >
+        <StatusBar
+          animated
+          style="auto"
+        />
 
         <View style={tailwind('pt-12 items-center')}>
           <View style={tailwind('bg-blue-200 px-3 py-1 rounded-full')}>
@@ -24,6 +31,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 })

@@ -1,0 +1,25 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Source } from '@storybook/addon-docs/blocks'
+import Claim from '../Assets/brand/dt-claim.svg'
+import Logo from '../Assets/brand/dt-logo.svg'
+import Colors from './Colors.jsx'
+
+<Meta title="Getting Started/Design colors" />
+
+#### Colors
+
+after including GlobalStyle, you will have access to Telecome color palate;
+
+Following variables are defined as Global css variables on `:root` element, so you can directly use them using css's `var(--name, fallback_value)`, or you can override them on local scope to achive certain theme.
+
+##### Colors
+
+<Colors from={8} />
+
+##### Named
+
+<Colors to={8} />
+
+```jsx
+<div backgroundColor="var(--magenta, #E20074)" />
+```

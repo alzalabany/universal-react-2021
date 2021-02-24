@@ -1,0 +1,107 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks'
+import { Source } from '@storybook/addon-docs/blocks'
+import Claim from '../Assets/brand/dt-claim.svg'
+import Logo from '../Assets/brand/dt-logo.svg'
+import Colors from './Colors.jsx'
+
+<Meta title="Getting Started/About this project" url="/" />
+
+# @SMART/Kambox Platform
+
+[![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
+[![NPM](https://img.shields.io/npm/v/@smart/miko.svg)](https://www.npmjs.com/package/@smart/miko) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com) [![Build Status](https://img.shields.io/travis/com/smart/miko)](https://travis-ci.com/github/smart/miko) [![Codecov](https://img.shields.io/codecov/c/github/smart/miko)](https://codecov.io/gh/smart/miko)
+
+## Intro
+
+This Repo is home for @smart/kambox
+
+## Features
+
+- Programing Language
+  - [x] **Typescript** Type safe javascript
+- Logic & SDK
+  - [x] **redux** State Management and Event Dispatcher
+  - [x] **reselect** Unified Interface for getting data
+  - [x] **redux/toolkit** Event Listeners, redux helpers
+- Quality Check
+  - [x] **storybook**: Accessibility and Performance testing
+  - [ ] **miragejs** |OR| **nockJs** |OR| **8s CMS** for mocking _still didn't decied which to go for.. Both are amazing_
+  - [x] **Jest & istanbul**: Testing
+  - [ ] **cypress**: e2e & intigration Testing
+  - [x] **Eslint** Code Quality
+- Quality Assurance
+  - [x] **Istanbul** Code Coverage
+  - [ ] **Lighthouse** Performance Testing
+  - [x] **prettier** Code formating
+  - [x] **storybook**: Manual testing and Documentation
+  - [x] **plop**: for Code Generation to ease repititave tasks
+- Deployment
+  - [x] **husky and lint-staged** for commit checking and ensurance
+  - [x] **commitizen** Standardize commit message
+  - [ ] **standard-version** for auto-versioning
+  - [ ] **Docker** containers for developement and deployment
+  - [x] **Gitlab-ci** pipelines for CI/CD
+
+## Directory structure
+
+```
+├── Config _____________________ # Application Config. and Redux store
+|
+|
+├── Docs _____________________ # General doc files
+|
+|
+├── Assets _____________________ # Images, Fonts, etc...
+|
+|
+├── __plop__ , __mocks__ _______ # for code generators
+|
+├── .storybook _________________ # configuration for documentation website
+|
+├── scripts ____________________ # various shell and node executables, helpers to do repeative tasks
+|
+📦src
+ ┣ 📂Assets
+ ┃ ┣ 📂brand
+ ┃ ┃ ┣ 📜 brand related images and logos
+ ┃ ┣ 📂fonts
+ ┃ ┃ ┣ 📜 Font files
+ ┃ ┣ 📂styles
+ ┃ ┃ ┣ 📜 css related helpers, sass, & components
+ ┣ 📂Components <-- if components is used by multiple feature, its placed here.
+ ┃ ┣ 📂[NAME]
+ ┃ ┃ ┣ 📜[NAME].spec.tsx   <-- Test file
+ ┃ ┃ ┣ 📜[NAME].stories.tsx<-- documentaion
+ ┃ ┃ ┗ 📜index.tsx <-- always expose using {Named exports}
+ ┃ ┣ 📜index.ts <--- this is api for Components folder. no direct imports from subfolders should be allpwed
+ ┣ 📂Config
+ ┃ ┣ 📜index.ts <--- this is api for Components folder. no direct imports from subfolders should be allpwed
+ ┃ ┣ 📜locale.tsx <-- Translation helpers
+ ┃ ┗ 📜store.ts <--- redux store
+ ┣ 📂Docs
+ ┃ ┗ 📜 Storybook mdx files for Global Docs (not specific for a feature or component)
+ ┣ 📂Features
+ ┃ ┣ 📂 [FEATURE NAME]
+ ┃ ┃ ┣ 📂components -> Components specific for this feature
+ ┃ ┃ ┣ 📂redux  -----> Redux slice for this feature
+ ┃ ┃ ┣ 📂widgets
+ ┃ ┃ ┣ 📂screens
+ ┃ ┃ ┣ 📂helpers
+ ┃ ┃ ┗ 📜index.ts
+ ┣ 📂Helpers --> pure functions
+```
+
+## Deployment
+
+app is hosted at #smart staging server, static files are served via #nginx ssl powered by #certbot
+
+nginx configuration file : `/etc/nginx/sites-available/kambox.de.conf`
+
+| url                                     | purpose               | root                      | logs                              |
+| --------------------------------------- | --------------------- | ------------------------- | --------------------------------- |
+| https://kambox.smart.8s-staging.de      | staging website       | /var/www/html/kambox/app  | /var/log/nginx/kambox.\*.log      |
+| https://kambox-docs.smart.8s-staging.de | documentation website | /var/www/html/kambox/docs | /var/log/nginx/kambox-docs.\*.log |
+
+### CI/DCD
+
+check Gitlab ci configuration for more info

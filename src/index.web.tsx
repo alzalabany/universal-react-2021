@@ -1,11 +1,12 @@
-import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
-
-import React from 'react'
 /* eslint-disable react/style-prop-object */
 import { StatusBar } from 'expo-status-bar'
+
+import React from 'react'
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native'
+
 import { tailwind } from 'Services/tailwind'
 
-export default function App() {
+export default function App () {
   return (
     <SafeAreaView style={tailwind('h-full')}>
       <View style={styles.container}>
@@ -26,6 +27,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
-  },
+    justifyContent: 'center'
+  }
 })

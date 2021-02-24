@@ -7,25 +7,24 @@ interface AuthState {
 
 const initialState: AuthState = {
   token: null,
-  isAuthenticated: false,
+  isAuthenticated: false
 }
-
 const auth = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    triggerSaveToken(state, { payload }: PayloadAction<string>) {
+    triggerSaveToken (state, { payload }: PayloadAction<string>) {
       if (payload) {
         state.token = payload
       }
     },
-    triggerClearToken(state) {
+    triggerClearToken (state) {
       state.token = null
     },
-    triggerSetAuthState(state, { payload }: PayloadAction<boolean>) {
+    triggerSetAuthState (state, { payload }: PayloadAction<boolean>) {
       state.isAuthenticated = payload
-    },
-  },
+    }
+  }
 })
 
 export default auth
@@ -34,5 +33,5 @@ export const { triggerSaveToken, triggerClearToken, triggerSetAuthState } = auth
 
 export const select = (): Record<string, (n: AuthState) => any> => ({
   isAuthenticated: (state) => state.isAuthenticated,
-  token: (state) => state.token,
+  token: (state) => state.token
 })

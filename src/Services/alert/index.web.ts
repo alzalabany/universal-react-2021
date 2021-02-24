@@ -13,11 +13,11 @@ export const showAlert = (titleText = 'Something happened.', alertType?: SweetAl
     icon: alertType,
     showClass: {
       popup: 'swal2-noanimation',
-      backdrop: 'swal2-noanimation',
+      backdrop: 'swal2-noanimation'
     },
     hideClass: {
       popup: '',
-      backdrop: '',
-    },
+      backdrop: ''
+    }
   })
 }
